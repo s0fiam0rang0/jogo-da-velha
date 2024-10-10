@@ -1,14 +1,15 @@
 from jogador import JogadorHumano, JogadorAleatorioComputador
 import time
+import math 
 
-from slaaa import jogar
 
 class JogoDaVelha:
+    global jogar
     def __init__(self):
         self.tabuleiro = [' ' for _ in range(9)]
         self.vencedor_atual = None 
     def printar_tabuleiro(self):
-        for risco in [self.board[i*3, (i+1)*3] for i in range(3)]:
+        for risco in [self.tabuleiro[i*3:(i+1)*3] for i in range(3)]:
             print('I ' + ' I '.join(risco) + ' I')
 
     @staticmethod
@@ -67,17 +68,17 @@ class JogoDaVelha:
                 quadrado = jogador_x.jogada(jogo)
             if jogo.realizar_jogada(quadrado, letra):
                 if printar_jogo:
-                    print(letra = f'realize uma jogada no quadrado {quadrado}')
+                    print(letra + f'realize uma jogada no quadrado {quadrado}')
                     jogo.printar_tabuleiro()
                     print('')
 
                 if jogo.vencedor_atual:
                     if printar_jogo:
-                        print(letra + 'VENCEU!')
+                        print(letra + ' VENCEU!')
                     return letra
                 
                 letra = 'O' if letra == 'X' else 'X'
-            time.sleep(5)
+            time.sleep(2)
 
         if printar_jogo:
             print('Empate!')
