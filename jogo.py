@@ -68,7 +68,7 @@ class JogoDaVelha:
                 quadrado = jogador_x.jogada(jogo)
             if jogo.realizar_jogada(quadrado, letra):
                 if printar_jogo:
-                    print(letra + f'realize uma jogada no quadrado {quadrado}')
+                    print(letra + f', realize uma jogada no quadrado {quadrado}')
                     jogo.printar_tabuleiro()
                     print('')
 
